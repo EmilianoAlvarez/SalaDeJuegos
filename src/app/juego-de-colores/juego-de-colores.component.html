@@ -1,0 +1,51 @@
+<html>
+<body> <app-menu-strip [puntosTotales]="unJuego.puntajeTotal" ></app-menu-strip>
+    
+    <div class="container" align="center" >
+            <button class="btn btn-primary btn-lg" routerLink="/salaDeJuegos" >Volver atras</button>
+    </div>
+
+    <div class="container row justify-content-md-center centroDePagina2">
+        <div class="col sm-6">
+            <div class="card mb-3">
+                <img class="card-img-top" src="./assets/imagenes/JuegoColores.jpg" alt="Card image cap" width="500" height="200" >
+
+                <div class="card-body"><h4 class="card-text">{{unJuego.nombreJuego}} </h4>
+                    Descripcion: {{unJuego.descripcion}}
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col sm-6">
+            <div class="card bg-{{colorFondo}}">
+
+            <div class="card-header" align="center"> <h3>{{elSistemaPide}}</h3>
+            </div>
+
+            <div class="card-body"> 
+                        <div class="clearfix">
+                        <p class="text-white float-right text-dark" ><strong>Pts: {{puntos}}</strong></p>
+                        <p class="text-white text-dark"><strong>Colores: {{intentos_Usuario}} / {{intentos_Sistema}} </strong></p>
+                        </div> 
+                   
+                <h1 class="card-title text-{{colorLetra}}" align="center"> {{Palabra}} </h1>
+                
+
+                <hr>
+                <input class="form-control" type="text" placeholder="Introduzca el color" *ngIf="this.unJuego.juega" id="TxtRespuesta" [(ngModel)]="respuestaUsuario" (keypress)="keyPressEnter($event)">
+                <button class="btn btn-dark btn-block" name="BtnAdivinar" (click)="prepararJuego()" *ngIf="!this.unJuego.juega">Juego nuevo</button>  
+                <h5 align="center" id="LblMensaje" class="text-white"><strong>{{unJuego.mensaje}}</strong></h5>  
+            </div>            
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+  </body>
+</html>
